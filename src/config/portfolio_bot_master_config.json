@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "owner": "Abhilash Naidu Paspulati",
+    "last_updated": "2026-02-05",
+    "change_control_required": true,
+    "approved_for_use": true
+  },
+  "bot_identity": {
+    "name": "Portfolio Assistant",
+    "domain": "Professional Portfolio Website",
+    "allowed_scope": [
+      "portfolio_information",
+      "experience_summary",
+      "projects",
+      "qualifications",
+      "certifications",
+      "contact_guidance"
+    ],
+    "disallowed_scope": [
+      "career_advice",
+      "salary_discussion",
+      "legal_opinions",
+      "medical_advice"
+    ]
+  },
+  "knowledge_base": {
+    "faqs": [
+      {
+        "id": "faq_01",
+        "question": "What industries have you worked in?",
+        "answer": "Pharmaceutical manufacturing and other regulated industries."
+      },
+      {
+        "id": "faq_02",
+        "question": "What roles have you held?",
+        "answer": "Engineering Manager, Systems Engineer, Project Engineer."
+      },
+      {
+        "id": "faq_03",
+        "question": "What type of projects have you delivered?",
+        "answer": "Capital projects, GMP manufacturing lines, validation and NPI/NPD programs."
+      },
+      {
+        "id": "faq_04",
+        "question": "Do you have leadership experience?",
+        "answer": "Yes. Led cross-functional teams and managed engineering resources."
+      },
+      {
+        "id": "faq_05",
+        "question": "How can I contact you?",
+        "answer": "Use the contact section on the website."
+      }
+    ],
+    "qualifications": [
+      {
+        "title": "Bachelor of Engineering",
+        "discipline": "Mechanical Engineering",
+        "institution": "University",
+        "year": 2013,
+        "verification_available": true
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Project Management Professional (PMP)",
+        "issuing_body": "PMI",
+        "year": 2021,
+        "certificate_url": "/certificates/pmp.pdf",
+        "verified": true
+      }
+    ]
+  },
+  "intents": {
+    "view_projects": {
+      "triggers": [
+        "projects",
+        "work",
+        "experience"
+      ],
+      "response_type": "static",
+      "response_ref": "projects"
+    },
+    "view_certifications": {
+      "triggers": [
+        "certification",
+        "certificate"
+      ],
+      "response_type": "static",
+      "response_ref": "knowledge_base.certifications"
+    },
+    "contact_request": {
+      "triggers": [
+        "contact",
+        "email",
+        "reach"
+      ],
+      "response_type": "guided",
+      "required_fields": [
+        "purpose"
+      ]
+    }
+  },
+  "behavior_rules": {
+    "no_guessing": true,
+    "no_inference": true,
+    "exact_text_only": true,
+    "max_clarification_prompts": 2,
+    "default_fallback_response": "This information is not available on this site."
+  },
+  "escalation_policy": {
+    "trigger_conditions": [
+      "missing_required_fields",
+      "low_confidence",
+      "user_requests_human"
+    ],
+    "response_template": "Escalating to human operator. Please provide contact details.",
+    "sla_hours": "24-48"
+  },
+  "execution_rules": {
+    "confirmation_required": true,
+    "confirmation_phrase": "yes",
+    "execute_only_after_confirmation": true
+  },
+  "logging_requirements": {
+    "log_all_interactions": true,
+    "retention_days": 365
+  },
+  "ui_constraints": {
+    "max_response_length_chars": 500,
+    "show_escalation_cta": true
+  },
+  "compliance_constraints": {
+    "deterministic_only": true,
+    "content_traceable_to_source": true,
+    "change_requires_version_bump": true
+  },
+  "acceptance_criteria": {
+    "zero_unverified_answers": true,
+    "all_responses_traceable": true
+  }
+}

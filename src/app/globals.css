@@ -1,0 +1,475 @@
+@import "tailwindcss";
+
+:root {
+  /* Monochrome Professional Palette */
+  --bg-primary: #000000;
+  --bg-secondary: #050505;
+  --bg-tertiary: #080808;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #050505;
+  --bg-hover: #0f0f0f;
+
+  /* Monochrome Accents */
+  --accent-white: #ffffff;
+  --accent-gray-light: #888888;
+  --accent-gray: #555555;
+  --accent-gray-dark: #222222;
+  --accent-shine: linear-gradient(135deg, #ffffff 0%, #666666 50%, #ffffff 100%);
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #666666;
+  --text-muted: #444444;
+
+  /* Surface */
+  --surface-border: #2a2a2a;
+  --surface-border-hover: #3a3a3a;
+  --surface-glow: rgba(255, 255, 255, 0.05);
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-surface: var(--bg-tertiary);
+  --color-surface-elevated: var(--bg-elevated);
+  --color-accent-white: var(--accent-white);
+  --color-accent-gray-light: var(--accent-gray-light);
+  --color-accent-gray: var(--accent-gray);
+  --color-accent-gray-dark: var(--accent-gray-dark);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-surface-border: var(--surface-border);
+  --color-surface-border-hover: var(--surface-border-hover);
+  --color-surface-glow: var(--surface-glow);
+  --font-sans: "Geist Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-slab: "Geist Slab", "Merriweather", "Source Serif Pro", serif;
+}
+
+html {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+  body {
+    background: #000000;
+    color: var(--text-primary);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .font-geist-sans {
+    font-family: "Geist Sans", "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Selection color */
+::selection {
+  background: var(--accent-gray-dark);
+  color: var(--text-primary);
+}
+
+/* Focus visible styles for accessibility (WCAG 2.1 AA) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px 16px;
+  background: #d4af37;
+  color: #000;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Shiny button gradient effect */
+.btn-shine {
+  background: linear-gradient(135deg, #ffffff 0%, #888888 50%, #ffffff 100%);
+  background-size: 200% 200%;
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Card hover glow effect */
+.card-glow {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  border-color: var(--surface-border-hover);
+}
+
+/* Text shine effect */
+.text-shine {
+  background: linear-gradient(90deg, #ffffff 0%, #888888 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 3s linear infinite;
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Breathing glow animation */
+@keyframes breathing {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Responsive Container Utilities */
+.container-responsive {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Safe Area Insets for Mobile */
+.safe-area-inset {
+  padding-left: env(safe-area-inset-left, 1rem);
+  padding-right: env(safe-area-inset-right, 1rem);
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Touch Action Utilities */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+/* Prevent text selection on zoom artifacts */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Timeline Styles */
+.timeline-horizontal {
+  position: relative;
+}
+
+.timeline-node {
+  position: absolute;
+  z-index: 10;
+  transform: translateX(-50%);
+}
+
+.timeline-mobile {
+  position: relative;
+}
+
+.timeline-mobile .w-52 {
+  flex-shrink: 0;
+}
+
+/* Responsive behavior for timeline */
+@media (max-width: 1023px) {
+  .timeline-horizontal {
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline-node {
+    position: relative;
+    left: 0 !important;
+    transform: none;
+  }
+}
+
+/* Custom scrollbar disable for desktop */
+@media (min-width: 1024px) {
+  .custom-scrollbar-none {
+    overflow: visible;
+  }
+  
+  .custom-scrollbar-none::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/* ============================================
+   Timeline Enhancement Utilities
+   ============================================ */
+
+/* Glassmorphism Card Base */
+.timeline-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.timeline-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Timeline Node Styles */
+.timeline-node-current {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.5),
+    0 0 40px rgba(212, 175, 55, 0.3),
+    0 0 60px rgba(212, 175, 55, 0.15),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.timeline-node-past {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-node-past:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+/* Connection Line */
+.timeline-connection {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* Project Card Glassmorphism */
+.project-card-glass {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  transition: all 0.5s ease;
+}
+
+.project-card-glass:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Achievement Dot */
+.achievement-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #3b82f6;
+  flex-shrink: 0;
+}
+
+/* Current Badge */
+.current-badge {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #d4af37;
+}
+
+/* Timeline Line Gradient */
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 10%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.3) 90%,
+    transparent 100%
+  );
+}
+
+/* Timeline Section Spacing */
+.timeline-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  .timeline-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .timeline-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Alternating Layout Utilities */
+.timeline-left {
+  grid-column: 1;
+  text-align: right;
+  padding-right: 4rem;
+}
+
+.timeline-right {
+  grid-column: 2;
+  padding-left: 4rem;
+}
+
+@media (max-width: 1023px) {
+  .timeline-left,
+  .timeline-right {
+    grid-column: 1;
+    text-align: left;
+    padding: 0;
+  }
+}
+
+/* Project Icon Hover */
+.project-icon {
+  transition: transform 0.3s ease;
+}
+
+.project-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Section Header Styling */
+.section-header-timeline {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .section-header-timeline {
+    margin-bottom: 5rem;
+  }
+}
+
+/* Gold Text Utility */
+.text-gold {
+  color: #d4af37;
+}
+
+.bg-gold-subtle {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.border-gold {
+  border-color: rgba(212, 175, 55, 0.3);
+}
