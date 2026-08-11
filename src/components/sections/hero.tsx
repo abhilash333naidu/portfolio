@@ -12,11 +12,18 @@ import { QuickNav } from "./quick-nav";
 export function Hero() {
   const experiences = [
     {
+      id: "independent-builder",
+      company: "Independent Product Building",
+      role: "Software Engineer & AI Product Developer",
+      period: "Jan 2026 - Present",
+      description: "Developing high-performance AI career-automation tools and mobile platforms during a technical sabbatical.",
+    },
+    {
       id: "csl-seqirus",
       company: "CSL Seqirus",
       role: "MS&T Process Engineer / Technology Transfer Lead",
-      period: "Jul 2022 - Present",
-      description: "Led 10+ cross-functional teams on $800M Project Banksia. Global technology transfer for cell-culture vaccines and antivenom products.",
+      period: "Jul 2022 - Dec 2025",
+      description: "Led 10+ cross-functional teams on $800M Project Banksia. Global technology transfer for cell-culture vaccines.",
     },
     {
       id: "life-space",
@@ -173,11 +180,11 @@ export function Hero() {
                 Abhilash Naidu Paspulati
               </h1>
               <h2 className="text-base sm:text-lg font-medium text-[#888888] mb-3">
-                Engineering Manager & Systems Engineer
+                Systems Engineer & AI Product Builder
               </h2>
               <p className="text-sm text-[#555555] leading-relaxed mb-4">
-                10+ years delivering safety-critical, capital-intensive programs across 
-                pharmaceutical manufacturing and regulated industries.
+                10+ years delivering safety-critical, capital-intensive programs and architecting 
+                high-performance AI-driven career automation suites.
               </p>
               <motion.a
                 href="#projects"
@@ -205,25 +212,22 @@ export function Hero() {
               </span>
               
               <h3 className="text-lg font-bold text-[#ffffff] mb-3">
-                Systems Engineer Delivering Complex Programs
+                Architecting Complex Systems & AI Products
               </h3>
               
               <p className="mb-3 text-sm text-[#888888] leading-relaxed">
-                A distinguished engineering manager with 10+ years of progressive experience delivering safety-critical, 
-                capital-intensive programs across GMP-regulated pharmaceutical manufacturing and precision 
-                engineering.
+                A distinguished engineering leader with 10+ years of progressive experience delivering safety-critical, 
+                high-assurance programs across pharmaceutical manufacturing and precision automation.
               </p>
               
               <p className="mb-3 text-sm text-[#555555] leading-relaxed">
-                Career progression spans mechanical design through laser process engineering to major 
-                capital project delivery. Currently contributing to Project Banksia, a landmark 
-                $800M sovereign manufacturing investment.
+                Currently undergoing a structured technical sabbatical (2026) to develop enterprise-grade AI products, 
+                including **CareerAI SubmitPro** and **ResumeCreatorApp**, utilizing React 19, Flutter, and Multi-Agent frameworks.
               </p>
               
               <p className="mb-4 text-sm text-[#555555] leading-relaxed">
-                Core strengths include multi-site technology transfer, process validation, 
-                regulatory compliance (TGA/FDA/EMA), and end-to-end commissioning 
-                of production systems.
+                Applying dual Harvard CS50 backgrounds in Python and AI to build failover-resilient 
+                scraping orchestrators and autonomous document generation pipelines.
               </p>
 
               {/* Download Resume Button - smaller */}

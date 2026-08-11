@@ -2,6 +2,43 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    id: "submitpro",
+    title: "CareerAI SubmitPro - AI Orchestration Suite",
+    description: "An enterprise-grade career automation monorepo designed for high-assurance job application workflows. Features a multi-source parallel scraper, semantic scoring engine, and human-in-the-loop (HITL) visual verification pipeline.",
+    category: "AI & Full-Stack Engineering",
+    tags: ["React 19", "Express", "Playwright", "Gemini AI", "SSE Streaming", "Systems Integration", "Automation"],
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+    size: "featured",
+    accent: true,
+    link: "https://github.com/abhilash333naidu/careerai-submitpro",
+    github: "https://github.com/abhilash333naidu/careerai-submitpro",
+    highlights: [
+      "Architected a failure-tolerant scraper orchestrator processing 7+ streams (Seek, LinkedIn, etc.) in parallel",
+      "Engineered a real-time SSE (Server-Sent Events) feedback loop for live AI-driven tailoring",
+      "Developed a precision document rendering engine using Tailwind-styled HTML and Playwright",
+      "Implemented multi-model fallback strategies (Zen/Kilo) for 99.9% AI availability",
+      "Strict data isolation and zero-leak security protocols for PII protection"
+    ]
+  },
+  {
+    id: "resumeapp",
+    title: "ResumeCreatorApp - Flutter Mobile/Web",
+    description: "A cross-platform professional document builder focused on dynamic PDF/LaTeX rendering and offline-first performance. Leverages SQLite for robust local state persistence and a modular template system.",
+    category: "Mobile Development",
+    tags: ["Flutter", "Dart", "SQLite", "PDF Generation", "LaTeX", "Cross-Platform"],
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=600&fit=crop",
+    size: "large",
+    link: "https://github.com/abhilash333naidu/resumecreatorapp",
+    github: "https://github.com/abhilash333naidu/resumecreatorapp",
+    highlights: [
+      "Built a modular multi-template resume engine with real-time preview and auto-save",
+      "Engineered an offline-first state management architecture using SQLite and Provider",
+      "Developed a custom LaTeX-to-PDF rendering pipeline for pixel-perfect documents",
+      "Designed a responsive UI following modern Material 3 and Apple HIG standards",
+      "Full lifecycle management from CI/CD to App Store submission readiness"
+    ]
+  },
+  {
     id: "1",
     title: "Project Banksia - Cell-Culture Vaccine Facility",
     description: "A landmark $800M national capital program delivering Australia's sovereign cell-based influenza vaccine and antivenom manufacturing capability. Led multi-site technology transfer and systems integration for critical vaccine platforms.",

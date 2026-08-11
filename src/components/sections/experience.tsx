@@ -29,6 +29,36 @@ interface ProjectData {
 }
 
 const companyProjects: Record<string, ProjectData[]> = {
+  "Independent Product Building": [
+    {
+      id: "submitpro-exp",
+      title: "CareerAI SubmitPro",
+      role: "Lead Engineer & Architect",
+      duration: "Jan 2026 - Present",
+      industry: "AI / Career-Tech",
+      projectType: "Full-Stack AI Application",
+      summary: "End-to-end development of an enterprise-grade job application automation platform.",
+      achievements: [
+        "Architected multi-source Playwright scraping orchestrator with semantic scoring",
+        "Built React 19 / Tailwind v4 frontend with real-time SSE streaming status updates",
+        "Engineered failure-tolerant document rendering pipeline for PDF/LaTeX generation"
+      ]
+    },
+    {
+      id: "resumecreator-exp",
+      title: "ResumeCreatorApp",
+      role: "Mobile App Developer",
+      duration: "Jan 2026 - Present",
+      industry: "Mobile / Productivity",
+      projectType: "Cross-Platform Mobile App",
+      summary: "Developing a robust offline-first resume builder using Flutter and SQLite.",
+      achievements: [
+        "Implemented modular template engine supporting 10+ professional designs",
+        "Engineered SQLite persistence layer for complex local state management",
+        "Designed and validated app store delivery pipelines and CI/CD workflows"
+      ]
+    }
+  ],
   "CSL Seqirus": [
     {
       id: "banksia",
@@ -129,12 +159,20 @@ const companyProjects: Record<string, ProjectData[]> = {
 
 const experiences = [
   {
+    id: "independent-builder",
+    company: "Independent Product Building",
+    role: "Independent Software Engineer & AI Product Developer",
+    period: "Jan 2026 - Present",
+    description: "Developing a suite of high-performance AI career-automation tools and mobile platforms during a planned technical upskilling sabbatical.",
+    isCurrent: true,
+  },
+  {
     id: "csl-seqirus",
     company: "CSL Seqirus",
     role: "MS&T Process Engineer / Technology Transfer Lead",
-    period: "Jul 2022 - Present",
+    period: "Jul 2022 - Dec 2025",
     description: "Led 10+ cross-functional teams on $800M Project Banksia. Global technology transfer for cell-culture vaccines and antivenom products.",
-    isCurrent: true,
+    isCurrent: false,
   },
   {
     id: "life-space",
