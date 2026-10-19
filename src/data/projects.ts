@@ -21,27 +21,9 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "resumeapp",
-    title: "ResumeCreatorApp - Flutter Mobile/Web",
-    description: "A cross-platform professional document builder focused on dynamic PDF/LaTeX rendering and offline-first performance. Leverages SQLite for robust local state persistence and a modular template system.",
-    category: "Mobile Development",
-    tags: ["Flutter", "Dart", "SQLite", "PDF Generation", "LaTeX", "Cross-Platform"],
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=600&fit=crop",
-    size: "large",
-    link: "https://github.com/abhilash333naidu/resumecreatorapp",
-    github: "https://github.com/abhilash333naidu/resumecreatorapp",
-    highlights: [
-      "Built a modular multi-template resume engine with real-time preview and auto-save",
-      "Engineered an offline-first state management architecture using SQLite and Provider",
-      "Developed a custom LaTeX-to-PDF rendering pipeline for pixel-perfect documents",
-      "Designed a responsive UI following modern Material 3 and Apple HIG standards",
-      "Full lifecycle management from CI/CD to App Store submission readiness"
-    ]
-  },
-  {
     id: "1",
     title: "Project Banksia - Cell-Culture Vaccine Facility",
-    description: "A landmark $800M national capital program delivering Australia's sovereign cell-based influenza vaccine and antivenom manufacturing capability. Led multi-site technology transfer and systems integration for critical vaccine platforms.",
+    description: "A landmark AUD 800M national capital program delivering Australia's sovereign cell-based influenza vaccine and antivenom manufacturing capability. Led multi-site technology transfer and systems integration for critical vaccine platforms.",
     category: "Pharmaceutical Manufacturing",
     tags: ["Technology Transfer", "GMP", "Systems Integration", "IQ/OQ/PQ", "TGA/FDA", "Cell Culture", "Capital Projects"],
     image: "https://images.unsplash.com/photo-1584362917165-526a968576cf?w=800&h=600&fit=crop",
@@ -51,7 +33,7 @@ export const projects: Project[] = [
     github: undefined,
     highlights: [
       "Coordinated 10+ cross-functional teams across engineering, quality, validation, automation, and operations",
-      "Led global-to-local technology transfer from Holly Springs (US) to Melbourne receiving site",
+      "Led global-to-local technology transfer to the Melbourne receiving site",
       "Defined QTPP, CQAs, CPPs, and validation strategy for cell-culture vaccine manufacturing",
       "Supported IQ/OQ/PQ execution and operational readiness for regulatory compliance",
       "One of Australia's most significant sovereign manufacturing investments"
