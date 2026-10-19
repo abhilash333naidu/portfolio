@@ -203,6 +203,7 @@ function Hero() {
                   src="/abhilash.webp"
                   alt="Abhilash Naidu Paspulati"
                   fill
+                  sizes="(min-width: 1024px) 320px, (min-width: 640px) 288px, 256px"
                   className="object-cover object-top"
                   priority
                 />
