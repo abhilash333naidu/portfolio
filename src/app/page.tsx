@@ -173,80 +173,22 @@ function Hero() {
             {/* Photo Container */}
             <div className="relative">
               {/* Static subtle border */}
-              <div className="absolute -inset-[1px] rounded-2xl border border-[#d4af37]/20 pointer-events-none" />
+              <div className="absolute -inset-[1px] rounded-2xl border border-[#d4af37]/40 pointer-events-none" />
 
-              {/* Light Tracing Effect - Drawing around photo perimeter */}
-              <svg
-                className="absolute -inset-[2px] w-[calc(100%+4px)] h-[calc(100%+4px)] pointer-events-none"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                style={{ overflow: "visible" }}
-              >
-                <defs>
-                  <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#d4af37" />
-                    <stop offset="50%" stopColor="#f4d03f" />
-                    <stop offset="100%" stopColor="#d4af37" />
-                  </linearGradient>
-                </defs>
-                
-                {/* Background track (subtle) - traces the rectangular perimeter */}
-                <path
-                  d="M 8 2 L 92 2 Q 98 2 98 8 L 98 92 Q 98 98 92 98 L 8 98 Q 2 98 2 92 L 2 8 Q 2 2 8 2 Z"
-                  fill="none"
-                  stroke="#d4af37"
-                  strokeWidth="1"
-                  strokeOpacity="0.15"
-                />
-                
-                {/* Animated light stroke - travels along the perimeter path */}
-                <motion.path
-                  d="M 8 2 L 92 2 Q 98 2 98 8 L 98 92 Q 98 98 92 98 L 8 98 Q 2 98 2 92 L 2 8 Q 2 2 8 2 Z"
-                  fill="none"
-                  stroke="url(#goldStroke)"
-                  strokeWidth="4.5"
-                  strokeDasharray="10 370"
-                  strokeLinecap="round"
-                  initial={{ strokeDashoffset: 0 }}
-                  animate={{
-                    strokeDashoffset: [0, -370]
-                  }}
-                  style={{
-                    filter: "drop-shadow(0 0 1.5px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 3px rgba(212, 175, 55, 0.3))"
-                  }}
-                  transition={{
-                    duration: 12.2,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                />
-                
-                {/* Second tracer - opposite side (180 degrees) */}
-                <motion.path
-                  d="M 8 2 L 92 2 Q 98 2 98 8 L 98 92 Q 98 98 92 98 L 8 98 Q 2 98 2 92 L 2 8 Q 2 2 8 2 Z"
-                  fill="none"
-                  stroke="url(#goldStroke)"
-                  strokeWidth="4.5"
-                  strokeDasharray="10 370"
-                  strokeLinecap="round"
-                  initial={{ strokeDashoffset: -180 }}
-                  animate={{
-                    strokeDashoffset: [-180, -550]
-                  }}
-                  style={{
-                    filter: "drop-shadow(0 0 1.5px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 3px rgba(212, 175, 55, 0.3))"
-                  }}
-                  transition={{
-                    duration: 12.2,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                />
-              </svg>
+              {/* Static illumination - spills onto the page */}
+              <div
+                aria-hidden="true"
+                className="absolute -inset-6 sm:-inset-8 rounded-[2rem] pointer-events-none blur-2xl"
+                style={{
+                  background:
+                    "radial-gradient(55% 50% at 50% 45%, rgba(212, 175, 55, 0.30) 0%, rgba(212, 175, 55, 0.12) 50%, rgba(212, 175, 55, 0) 78%)",
+                }}
+              />
 
               {/* Photo */}
               <motion.div
                 className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-80 lg:h-[420px] rounded-2xl overflow-hidden bg-[#000000]"
+                style={{ boxShadow: "0 0 24px rgba(212, 175, 55, 0.22), 0 0 60px rgba(212, 175, 55, 0.10)" }}
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
