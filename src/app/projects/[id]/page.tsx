@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { Header } from "@/components/layout/header";
