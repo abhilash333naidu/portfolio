@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FadeUp } from "@/components/animations/fade-up";
 import { easings, staggerContainer, staggerItem } from "@/lib/animations";
 import { 
   Settings, 
@@ -12,8 +11,8 @@ import {
 
 const services = [
   {
-    id: "engineering-management",
-    title: "Engineering Management & Systems Integration",
+    id: "project-delivery",
+    title: "Project Delivery & Systems Integration",
     description: "End-to-end program delivery, multi-disciplinary team leadership, requirements traceability & design control for complex systems.",
     icon: Settings,
   },
@@ -65,7 +64,7 @@ export function Services() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.id}
               variants={staggerItem}

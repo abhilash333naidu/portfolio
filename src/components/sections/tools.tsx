@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FadeUp } from "@/components/animations/fade-up";
 import { easings, staggerContainer, staggerItem } from "@/lib/animations";
 
 const tools = [
@@ -17,9 +16,13 @@ const tools = [
   { name: "DOE", category: "Process & Systems" },
   { name: "Risk Analysis", category: "Process & Systems" },
   { name: "Validation (IQ/OQ/PQ)", category: "Process & Systems" },
-  { name: "Python", category: "Programming" },
+  { name: "Python", category: "Programming \u00b7 working proficiency" },
+  { name: "TypeScript", category: "Programming \u00b7 working proficiency" },
+  { name: "React", category: "Programming \u00b7 working proficiency" },
+  { name: "Playwright", category: "Programming \u00b7 working proficiency" },
+  { name: "Flutter", category: "Programming \u00b7 prototype, not released" },
+  { name: "CS50P", category: "Programming \u00b7 completed" },
   { name: "PLC Fundamentals", category: "Programming" },
-  { name: "CS50", category: "Programming" },
 ];
 
 export function Tools() {
@@ -50,7 +53,7 @@ export function Tools() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {tools.map((tool, index) => (
+          {tools.map((tool) => (
             <motion.div
               key={tool.name}
               variants={staggerItem}
