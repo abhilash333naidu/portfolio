@@ -14,7 +14,8 @@ import {
   handoffMessages,
   naturalTransitions,
   informationResponses,
-  clarificationResponses
+  clarificationResponses,
+  smallTalkResponses
 } from './responseTemplates';
 import {
   getTopicDepth,
@@ -159,7 +160,7 @@ function generateDirectResponse(
   
   // Handle small talk
   if (['how_are_you', 'can_you_help', 'thanks', 'goodbye'].includes(templateCategory)) {
-    return getSmallTalkResponse(templateCategory as any);
+    return getSmallTalkResponse(templateCategory as keyof typeof smallTalkResponses);
   }
   
   // Handle information seeking
