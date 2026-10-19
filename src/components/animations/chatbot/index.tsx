@@ -488,7 +488,7 @@ export function ChatBot() {
                   Professional Assistant
                 </p>
                 <p className="text-xs text-white/60 leading-relaxed">
-                  Ask me about Abhilash's engineering management experience!
+                  Ask me about Abhilash&apos;s engineering and pharma manufacturing experience!
                 </p>
               </div>
             </div>
