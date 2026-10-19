@@ -9,10 +9,9 @@ import { Menu, X } from "lucide-react";
   const navLinks = [
     { href: "/", label: "Home", font: "font-[var(--font-source-sans)]" },
     { href: "/cursor-flare-test", label: "Cursor Flare", font: "font-[var(--font-source-sans)]" },
+    { href: "#experience", label: "Experience", font: "font-[var(--font-source-sans)]" },
     { href: "#services", label: "Services", font: "font-[var(--font-source-sans)]" },
-    { href: "#about", label: "About", font: "font-[var(--font-source-sans)]" },
-    { href: "#projects", label: "Projects", font: "font-[var(--font-source-sans)]" },
-    { href: "#process", label: "Process", font: "font-[var(--font-source-sans)]" },
+    { href: "#tools", label: "Tools", font: "font-[var(--font-source-sans)]" },
     { href: "#contact", label: "Contact", font: "font-[var(--font-source-sans)]" },
   ];
 

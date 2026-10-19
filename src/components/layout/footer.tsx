@@ -6,11 +6,10 @@ import { easings } from "@/lib/animations";
 import { Linkedin, Mail, ArrowUp } from "lucide-react";
 
 const footerLinks = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/" },
+  { label: "Experience", href: "#experience" },
   { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Process", href: "#process" },
+  { label: "Tools", href: "#tools" },
   { label: "Contact", href: "#contact" },
 ];
 
