@@ -7,6 +7,7 @@ import { Services } from "@/components/sections/services";
 import { Tools } from "@/components/sections/tools";
 import { Contact } from "@/components/sections/contact";
 import { easings } from "@/lib/animations";
+import { useReducedMotion } from "@/hooks/useMediaQuery";
 import { Download, ChevronDown, ArrowRight, Briefcase, Building2, Shield, Award } from "lucide-react";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
@@ -20,6 +21,7 @@ const navItems = [
 
 // Floating Orb Component
 function FloatingOrb({ delay, duration, size, color }: { delay: number; duration: number; size: number; color: string }) {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <motion.div
       className="absolute rounded-full pointer-events-none"
@@ -31,16 +33,24 @@ function FloatingOrb({ delay, duration, size, color }: { delay: number; duration
         opacity: 0.06,
       }}
       initial={{ x: 0, y: 0 }}
-      animate={{
-        x: [0, 80, -60, 0],
-        y: [0, -60, 40, 0],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
+      animate={
+        prefersReducedMotion
+          ? { x: 0, y: 0 }
+          : {
+              x: [0, 80, -60, 0],
+              y: [0, -60, 40, 0],
+            }
+      }
+      transition={
+        prefersReducedMotion
+          ? { duration: 0 }
+          : {
+              duration,
+              delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }
+      }
     />
   );
 }
@@ -97,20 +107,27 @@ function AnimatedParagraph({ children, delay = 0, className = "" }: { children: 
 
 // Shimmer text effect
 function ShimmerText({ text, className }: { text: string; className?: string }) {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <motion.span
       className={`bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] bg-clip-text text-transparent ${className}`}
       style={{
         backgroundSize: "200% auto",
       }}
-      animate={{
-        backgroundPosition: ["0% center", "200% center"],
-      }}
-      transition={{
-        duration: 3,
-        repeat: Infinity,
-        ease: "linear",
-      }}
+      animate={
+        prefersReducedMotion
+          ? { backgroundPosition: "0% center" }
+          : { backgroundPosition: ["0% center", "200% center"] }
+      }
+      transition={
+        prefersReducedMotion
+          ? { duration: 0 }
+          : {
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear",
+            }
+      }
     >
       {text}
     </motion.span>
@@ -120,6 +137,7 @@ function ShimmerText({ text, className }: { text: string; className?: string }) 
 // Main Hero Component
 function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
   const { scrollY } = useScroll();
   
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
@@ -288,16 +306,24 @@ function Hero() {
                 >
                   {/* Animated Icon */}
                   <motion.span
-                    animate={{
-                      scale: [1, 1.12, 1],
-                      y: [0, -2, 0],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.4,
-                    }}
+                    animate={
+                      prefersReducedMotion
+                        ? { scale: 1, y: 0 }
+                        : {
+                            scale: [1, 1.12, 1],
+                            y: [0, -2, 0],
+                          }
+                    }
+                    transition={
+                      prefersReducedMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.4,
+                          }
+                    }
                     className="relative"
                   >
                     {/* Icon Glow on Hover */}
@@ -316,15 +342,21 @@ function Hero() {
                         WebkitTextFillColor: "transparent",
                         backgroundClip: "text",
                       }}
-                      animate={{
-                        backgroundPosition: ["200% 0%", "-200% 0%"],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: index * 0.8,
-                      }}
+                      animate={
+                        prefersReducedMotion
+                          ? { backgroundPosition: "200% 0%" }
+                          : { backgroundPosition: ["200% 0%", "-200% 0%"] }
+                      }
+                      transition={
+                        prefersReducedMotion
+                          ? { duration: 0 }
+                          : {
+                              duration: 4,
+                              repeat: Infinity,
+                              ease: "linear",
+                              delay: index * 0.8,
+                            }
+                      }
                     >
                       {item.text}
                     </motion.span>
@@ -350,8 +382,14 @@ function Hero() {
                 style={{ backgroundSize: "200% 200%" }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                animate={
+                  prefersReducedMotion
+                    ? { backgroundPosition: "0% 50%" }
+                    : { backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }
+                }
+                transition={
+                  prefersReducedMotion ? { duration: 0 } : { duration: 4, repeat: Infinity, ease: "linear" }
+                }
               >
                 <Download className="w-4 h-4" />
                 <span>Download Resume</span>
@@ -382,8 +420,10 @@ function Hero() {
         <motion.a
           href="#experience"
           className="flex flex-col items-center gap-2 text-white/40 hover:text-white/60 transition-colors cursor-pointer"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          animate={prefersReducedMotion ? { y: 0 } : { y: [0, 8, 0] }}
+          transition={
+            prefersReducedMotion ? { duration: 0 } : { duration: 2, repeat: Infinity, ease: "easeInOut" }
+          }
         >
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <ChevronDown className="w-5 h-5" />
