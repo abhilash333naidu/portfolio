@@ -119,12 +119,12 @@ const companyProjects: Record<string, ProjectData[]> = {
   "Glass Expansion": [
     {
       id: "laser-manufacturing",
-      title: "Advanced Laser Manufacturing Optimization",
+      title: "Laser Processing Development",
       role: "Laser Technician",
       duration: "1+ year",
       industry: "Precision Manufacturing",
-      projectType: "Process Optimization | Continuous Improvement",
-      summary: "Optimization of laser manufacturing processes for difficult-to-machine carbon materials.",
+      projectType: "Laser Processing | Continuous Improvement",
+      summary: "Laser processing of carbon materials previously considered unfeasible.",
       achievements: [
         "Enabled laser processing of carbon materials previously considered unfeasible",
         "Significantly reduced scrap and rejection rates"
@@ -134,12 +134,12 @@ const companyProjects: Record<string, ProjectData[]> = {
   "SKF Australia Pty Ltd": [
     {
       id: "bearing-design",
-      title: "Industrial Bearing Design & Optimization",
+      title: "Industrial Bearing Design",
       role: "Mechanical Draftsperson",
       duration: "~1 year",
       industry: "Heavy Industry | Mining | Oil & Gas",
       projectType: "Mechanical Design | Reliability Engineering",
-      summary: "Design and optimization of large-scale bearing systems for global industrial clients.",
+      summary: "Design of large-scale bearing systems for global industrial clients.",
       achievements: [
         "Supported high-reliability applications in critical industrial environments",
         "Improved maintainability and lifecycle performance of bearing systems"

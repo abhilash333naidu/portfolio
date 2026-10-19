@@ -32,9 +32,9 @@ export const projects: Project[] = [
     link: "#",
     github: undefined,
     highlights: [
-      "Coordinated 10+ cross-functional teams across engineering, quality, validation, automation, and operations",
+      "Coordinated work across Operations, Quality, Validation, Engineering, Automation and Supply Chain",
       "Led global-to-local technology transfer to the Melbourne receiving site",
-      "Defined QTPP, CQAs, CPPs, and validation strategy for cell-culture vaccine manufacturing",
+      "Prepared technology-transfer packages, facility-fit assessments and process characterisation studies",
       "Supported IQ/OQ/PQ execution and operational readiness for regulatory compliance",
       "One of Australia's most significant sovereign manufacturing investments"
     ]
@@ -50,8 +50,7 @@ export const projects: Project[] = [
     link: "#",
     github: undefined,
     highlights: [
-      "Full project lifecycle ownership: design, equipment selection, installation, commissioning, validation",
-      "Acted as TGA audit lead and technical presenter for owned production lines",
+      "Full project lifecycle involvement: design, equipment selection, installation, commissioning, validation",
       "Achieved licensing with zero major findings for tablet and sachet lines",
       "Delivered projects under aggressive timelines through disciplined stakeholder coordination",
       "Authored VMP, IQ/OQ packages, batch records, and training matrices"
@@ -77,10 +76,10 @@ export const projects: Project[] = [
   },
   {
     id: "4",
-    title: "Laser Process Optimisation",
-    description: "Implemented DOE-driven laser parameter optimisation for hard carbon materials, enabling new manufacturing capability and achieving measurable reduction in scrap and rejection rates through validated process windows.",
+    title: "Laser Processing Development",
+    description: "Laser processing of carbon materials previously considered unfeasible. Used 5S and continuous improvement to reduce scrap and rejection rates.",
     category: "Advanced Manufacturing",
-    tags: ["Laser Programming", "DOE", "Process Optimisation", "Quality Control", "Continuous Improvement", "5S"],
+    tags: ["Laser Processing Development", "5S", "Continuous Improvement", "Quality Control"],
     image: "https://images.unsplash.com/photo-1565465295423-68c959ca3c2e?w=800&h=600&fit=crop",
     size: "wide",
     accent: true,
@@ -88,10 +87,10 @@ export const projects: Project[] = [
     github: undefined,
     highlights: [
       "Programmed and executed laser processes for precision engraving and cutting",
-      "Optimised laser parameters for hard carbon materials previously considered unsuitable",
+      "Developed laser processing for carbon materials previously considered unfeasible",
       "Implemented 5S, continuous improvement initiatives, SOPs, and quality checkpoints",
       "Enabled new manufacturing capability through validated laser programs",
-      "Reduced scrap and rejection rates through DOE-driven parameter optimisation"
+      "Applied 5S and continuous improvement to reduce scrap and rejection rates"
     ]
   },
   {
