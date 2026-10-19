@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { FadeUp } from "@/components/animations/fade-up";
-import { TextReveal } from "@/components/animations/text-reveal";
 import { easings } from "@/lib/animations";
 import { Mail, Linkedin, Send } from "lucide-react";
 
