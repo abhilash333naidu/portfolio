@@ -230,7 +230,7 @@ function Hero() {
               </p>
 
               <p className="text-sm sm:text-base text-[#aaaaaa] leading-relaxed">
-                I owned MS&amp;T technology-transfer deliverables on CSL Seqirus&apos;s AUD 800M Project Banksia. At Life-Space Group I delivered commissioning and qualification for 2 production lines, and the site received TGA approval at its first audit with 0 major findings.
+                I owned MS&amp;T technology-transfer deliverables on CSL Seqirus&apos;s AUD 800M Project Banksia. At Life-Space Group I delivered commissioning and qualification for 2 production lines, and the site received TGA approval at its first audit with zero major findings.
               </p>
 
               <p className="text-sm sm:text-base text-[#aaaaaa] leading-relaxed">

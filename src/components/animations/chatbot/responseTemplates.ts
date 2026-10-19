@@ -68,7 +68,7 @@ export const informationResponses = {
   // Identity & Background
   who_is_he: {
     brief: "Abhilash is an Engineers Australia-assessed Mechanical Engineer in Melbourne, with 10 years in engineering and 7 of them in pharma and biopharma.",
-    detailed: "Abhilash is an Engineers Australia-assessed Mechanical Engineer in Melbourne. He has 10 years in engineering, 7 of them in pharma and biopharma. He was the MS&T Technology Transfer Lead on CSL Seqirus's AUD 800M Project Banksia, and at Life-Space Group the site received TGA approval at its first audit with 0 major findings. Since Jan 2026 he's been on a planned career break, building personal AI systems projects. What specifically interests you?"
+    detailed: "Abhilash is an Engineers Australia-assessed Mechanical Engineer in Melbourne. He has 10 years in engineering, 7 of them in pharma and biopharma. He was the MS&T Technology Transfer Lead on CSL Seqirus's AUD 800M Project Banksia, and at Life-Space Group the site received TGA approval at its first audit with zero major findings. Since Jan 2026 he's been on a planned career break, building personal AI systems projects. What specifically interests you?"
   },
   
   what_does_he_do: {
@@ -77,7 +77,7 @@ export const informationResponses = {
   
   experience_overview: {
     brief: "Abhilash has 10 years in engineering, 7 of them in pharma and biopharma. He was the MS&T Technology Transfer Lead on CSL Seqirus's AUD 800M Project Banksia. Before that he delivered commissioning and qualification at Life-Space Group, and led product development and scale-up at APM.",
-    detailed: "Abhilash has 10 years in engineering, 7 of them in pharma and biopharma. From Jul 2022 to Dec 2025 he was MS&T Process Engineer (Technology Transfer Lead) at CSL Seqirus, on the AUD 800M Project Banksia program. Before that he delivered commissioning and qualification for 2 production lines at Life-Space Group, where the site received TGA approval at its first audit with 0 major findings. He also led product development and scale-up at Australian Pharmaceutical Manufacturers, and worked in precision manufacturing and mechanical design at SKF and Glass Expansion. His core experience is technology transfer and GMP manufacturing. What area interests you most?"
+    detailed: "Abhilash has 10 years in engineering, 7 of them in pharma and biopharma. From Jul 2022 to Dec 2025 he was MS&T Process Engineer (Technology Transfer Lead) at CSL Seqirus, on the AUD 800M Project Banksia program. Before that he delivered commissioning and qualification for 2 production lines at Life-Space Group, where the site received TGA approval at its first audit with zero major findings. He also led product development and scale-up at Australian Pharmaceutical Manufacturers, and worked in precision manufacturing and mechanical design at SKF and Glass Expansion. His core experience is technology transfer and GMP manufacturing. What area interests you most?"
   },
   
   // Technical Expertise
@@ -88,7 +88,7 @@ export const informationResponses = {
   },
   
   gmp_compliance: {
-    response: "Abhilash has a strong record in GMP compliance. At Life-Space Group the site received TGA approval at its first audit with 0 major findings, and he helped prepare the team for that inspection. He knows what regulators look for."
+    response: "Abhilash has a strong record in GMP compliance. At Life-Space Group the site received TGA approval at its first audit with zero major findings, and he helped prepare the team for that inspection. He knows what regulators look for."
   },
   
   product_development: {
@@ -96,7 +96,7 @@ export const informationResponses = {
   },
   
   regulatory_success: {
-    response: "At Life-Space Group, Abhilash led commissioning and qualification for the tablet and sachet production lines. The site received TGA approval at its first audit with 0 major findings."
+    response: "At Life-Space Group, Abhilash led commissioning and qualification for the tablet and sachet production lines. The site received TGA approval at its first audit with zero major findings."
   },
   
   // Specific Projects
@@ -105,7 +105,7 @@ export const informationResponses = {
   },
   
   tga_achievement: {
-    response: "At Life-Space Group, Abhilash led commissioning and qualification for the tablet and sachet production lines. The site received TGA approval at its first audit with 0 major findings."
+    response: "At Life-Space Group, Abhilash led commissioning and qualification for the tablet and sachet production lines. The site received TGA approval at its first audit with zero major findings."
   },
   
   // Personal
