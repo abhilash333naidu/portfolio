@@ -186,8 +186,8 @@ export function Contact() {
                 Response Time
               </h3>
               <p className="text-sm text-[#666666] leading-relaxed">
-                    I typically respond within 24-48 hours. For urgent matters, feel free to contact me directly via email.
-                  </p>
+                I typically respond within 2 business days. For anything urgent, email is the fastest way to reach me.
+              </p>
             </motion.div>
           </div>
         </div>
