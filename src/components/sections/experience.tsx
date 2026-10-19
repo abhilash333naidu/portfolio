@@ -10,7 +10,7 @@ import Image from "next/image";
 const companyLogos: Record<string, string> = {
   "CSL Seqirus": "/logos/csl.jpeg",
   "Life-Space Group": "/logos/life_space_group.jpg", 
-  "Australian Pharmaceutical Manufacturers": "/logos/apm1.jpg",
+  "Australian Pharmaceutical Manufacturers (Pact Group Holdings Ltd)": "/logos/apm1.jpg",
   "Glass Expansion": "/logos/glass%20expansion.jpg",
   "SKF Australia Pty Ltd": "/logos/skf.jpg",
   "Simplex CNC Systems": "",
@@ -100,7 +100,7 @@ const companyProjects: Record<string, ProjectData[]> = {
       ]
     }
   ],
-  "Australian Pharmaceutical Manufacturers": [
+  "Australian Pharmaceutical Manufacturers (Pact Group Holdings Ltd)": [
     {
       id: "npd-npi",
       title: "NPD & NPI Programs",
@@ -166,12 +166,19 @@ const companyProjects: Record<string, ProjectData[]> = {
   ]
 };
 
+interface ExperienceRole {
+  title: string;
+  period: string;
+  paragraphs: string[];
+}
+
 interface ExperienceEntry {
   id: string;
   company: string;
-  role: string;
+  role?: string;
   period: string;
-  description: string | string[];
+  description?: string | string[];
+  roles?: ExperienceRole[];
   isCurrent: boolean;
 }
 
@@ -211,19 +218,27 @@ const experiences: ExperienceEntry[] = [
     isCurrent: false,
   },
   {
-    id: "pharma-tech",
-    company: "Australian Pharmaceutical Manufacturers",
-    role: "Technical Lead",
-    period: "Jul 2020 - Nov 2021",
-    description: "Technical delivery ensuring GMP compliance for all pharmaceutical manufacturing processes.",
-    isCurrent: false,
-  },
-  {
-    id: "pharma-scientist",
-    company: "Australian Pharmaceutical Manufacturers",
-    role: "Technical Scientist",
-    period: "Sep 2018 - Jul 2020",
-    description: "Contributed to scientific and technical aspects of pharmaceutical production and process improvement.",
+    id: "apm",
+    company: "Australian Pharmaceutical Manufacturers (Pact Group Holdings Ltd)",
+    period: "Sep 2018 - Oct 2021",
+    roles: [
+      {
+        title: "Technical Lead",
+        period: "Jul 2020 - Oct 2021",
+        paragraphs: [
+          "I led product development and scale-up projects in complementary-medicine manufacturing, from product trials through commercial production. I developed and scaled tablets, capsules, powders and sachets for clients including Swisse, UltraLife, BioRevive, Bubs Australia and Isagenix.",
+          "I line-managed two Technical Scientists and one Senior Production Technician, and coordinated maintenance contractors. I commissioned, qualified and validated tablet compression machines, sachet lines and supporting equipment. I also developed SOPs, trained and assessed operators, and troubleshot production issues and batch deviations.",
+          "I used OEE analysis and root-cause investigations to address unplanned downtime and improve production throughput. I defined preventive maintenance intervals, replacement criteria and critical spares for manufacturing equipment. I also prepared cost-per-batch quotations that contributed to more than 20 won contracts.",
+        ],
+      },
+      {
+        title: "Technical Scientist",
+        period: "Sep 2018 - Jul 2020",
+        paragraphs: [
+          "I contributed to new product launches from concept through full-scale routine production. I applied OEE analysis to support production operations and equipment reliability improvement.",
+        ],
+      },
+    ],
     isCurrent: false,
   },
   {
@@ -474,20 +489,40 @@ function CompanyCard({ exp, index }: CompanyCardProps) {
                 {exp.period}
               </span>
             </div>
-            <div className="flex items-center gap-2">
-              <Briefcase className="h-3.5 w-3.5 text-white/40" />
-              <span className="text-sm font-medium text-white/90">{exp.role}</span>
-            </div>
+            {!exp.roles && (
+              <div className="flex items-center gap-2">
+                <Briefcase className="h-3.5 w-3.5 text-white/40" />
+                <span className="text-sm font-medium text-white/90">{exp.role}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       {/* Company Description */}
-      <div className="text-sm text-white/50 leading-relaxed space-y-3">
-        {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((paragraph, i) => (
-          <p key={i}>{paragraph}</p>
-        ))}
-      </div>
+      {exp.roles ? (
+        <div className="space-y-5">
+          {exp.roles.map((roleEntry) => (
+            <div key={roleEntry.title}>
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="text-sm font-medium text-white/90">{roleEntry.title}</span>
+                <span className="text-xs font-medium text-[#d4af37]">{roleEntry.period}</span>
+              </div>
+              <div className="text-sm text-white/50 leading-relaxed space-y-3">
+                {roleEntry.paragraphs.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="text-sm text-white/50 leading-relaxed space-y-3">
+          {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 }
