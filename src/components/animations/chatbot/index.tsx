@@ -83,6 +83,7 @@ export function ChatBot() {
 
   // Load conversation from localStorage on mount
   useEffect(() => {
+    let restored: Message[] | null = null;
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
@@ -90,17 +91,23 @@ export function ChatBot() {
         // Only restore if less than 24 hours old
         if (Date.now() - timestamp < 24 * 60 * 60 * 1000 && savedMessages?.length > 0) {
           // Convert timestamp strings back to Date objects
-          const restoredMessages = savedMessages.map((m: Message) => ({
+          restored = savedMessages.map((m: Message) => ({
             ...m,
             timestamp: new Date(m.timestamp)
           }));
-          setMessages(restoredMessages);
-          setShowQuickReplies(restoredMessages.length <= 1);
-          return;
         }
       }
     } catch (e) {
       console.error('Failed to restore conversation', e);
+    }
+
+    if (restored) {
+      const restoredMessages = restored;
+      queueMicrotask(() => {
+        setMessages(restoredMessages);
+        setShowQuickReplies(restoredMessages.length <= 1);
+      });
+      return;
     }
 
     // Initialize with greeting if no saved conversation
@@ -113,7 +120,7 @@ export function ChatBot() {
       confidence: 1.0,
       analyticsTag: "greeting"
     };
-    setMessages([greetingMessage]);
+    queueMicrotask(() => setMessages([greetingMessage]));
   }, []);
 
   // Save conversation to localStorage when messages change
