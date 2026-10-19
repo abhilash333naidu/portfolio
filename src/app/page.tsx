@@ -10,7 +10,7 @@ import { easings } from "@/lib/animations";
 import { useReducedMotion } from "@/hooks/useMediaQuery";
 import { Download, ChevronDown, ArrowRight, Briefcase, Building2, Shield, Award } from "lucide-react";
 import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
 const navItems = [
   { label: "Experience", href: "#experience" },
@@ -76,32 +76,6 @@ function AnimatedName({ text }: { text: string }) {
         </motion.span>
       ))}
     </h1>
-  );
-}
-
-// Word animation for paragraphs
-function AnimatedParagraph({ children, delay = 0, className = "" }: { children: string; delay?: number; className?: string }) {
-  const words = children.split(" ");
-  
-  return (
-    <p className={className}>
-      {words.map((word, index) => (
-        <motion.span
-          key={index}
-          initial={{ opacity: 0, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, filter: "blur(0px)" }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.4,
-            delay: delay + index * 0.02,
-            ease: "easeOut",
-          }}
-          style={{ display: "inline-block", marginRight: "0.25em" }}
-        >
-          {word}
-        </motion.span>
-      ))}
-    </p>
   );
 }
 
@@ -245,22 +219,22 @@ function Hero() {
               className="mb-6"
             >
               <h2 className="text-lg sm:text-xl lg:text-2xl font-medium">
-                <ShimmerText text="Systems Engineering Manager" />
+                <ShimmerText text="Major program delivery with Olympic rigour." />
               </h2>
             </motion.div>
 
             {/* Professional Summary */}
             <div className="space-y-4 mb-6">
               <p className="text-sm sm:text-base text-[#aaaaaa] leading-relaxed">
-                Engineering leader with 10+ years delivering safety-critical, capital-intensive systems across GMP-regulated pharmaceutical manufacturing and precision engineering.
+                I&apos;m an Engineers Australia-assessed Mechanical Engineer in Melbourne, with 10 years in engineering, 7 of them in pharma and biopharma.
               </p>
 
               <p className="text-sm sm:text-base text-[#aaaaaa] leading-relaxed">
-                Currently driving Project Banksia, a landmark AUD 800M sovereign manufacturing investment supporting large-scale vaccine and biologics production.
+                I owned MS&amp;T technology-transfer deliverables on CSL Seqirus&apos;s AUD 800M Project Banksia. At Life-Space Group I delivered commissioning and qualification for 2 production lines, and the site received TGA approval at its first audit with 0 major findings.
               </p>
 
               <p className="text-sm sm:text-base text-[#aaaaaa] leading-relaxed">
-                Specialist in technology transfer, process validation, regulatory audit readiness (TGA / FDA / EMA), and operational handover of complex production systems.
+                Since Jan 2026 I&apos;ve been on a planned career break, building personal AI systems projects. I want to get back into regulated life sciences in Melbourne, ideally biopharma and vaccines.
               </p>
             </div>
 
@@ -282,10 +256,10 @@ function Hero() {
             >
               {/* Credential Item Component */}
               {[
-                { icon: Award, text: "$800M Project Banksia" },
+                { icon: Award, text: "AUD 800M Project Banksia" },
                 { icon: Building2, text: "GMP Manufacturing" },
                 { icon: Briefcase, text: "Technology Transfer" },
-                { icon: Shield, text: "Regulatory Compliance" },
+                { icon: Shield, text: "Life-Space: TGA first audit, 0 major findings" },
               ].map((item, index) => (
                 <motion.span
                   key={index}

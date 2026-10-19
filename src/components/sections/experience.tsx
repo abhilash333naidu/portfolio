@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
-import { easings, staggerContainer, staggerItem } from "@/lib/animations";
-import { Building2, Calendar, Briefcase, Target } from "lucide-react";
+import { easings, staggerItem } from "@/lib/animations";
+import { Building2, Calendar, Briefcase } from "lucide-react";
 import Image from "next/image";
 
 // Logo mapping for companies
@@ -11,7 +11,7 @@ const companyLogos: Record<string, string> = {
   "CSL Seqirus": "/logos/csl.jpeg",
   "Life-Space Group": "/logos/life_space_group.jpg", 
   "Australian Pharmaceutical Manufacturers": "/logos/apm1.jpg",
-  "Glass Expansions": "/logos/glass%20expansion.jpg",
+  "Glass Expansion": "/logos/glass%20expansion.jpg",
   "SKF Australia Pty Ltd": "/logos/skf.jpg",
   "Simplex CNC Systems": "",
 };
@@ -29,33 +29,43 @@ interface ProjectData {
 }
 
 const companyProjects: Record<string, ProjectData[]> = {
-  "Independent Product Building": [
+  "Professional development": [
     {
-      id: "submitpro-exp",
-      title: "CareerAI SubmitPro",
-      role: "Lead Engineer & Architect",
+      id: "skills-catalog-governance",
+      title: "skills-catalog-governance",
+      role: "Personal project",
       duration: "Jan 2026 - Present",
-      industry: "AI / Career-Tech",
-      projectType: "Full-Stack AI Application",
-      summary: "End-to-end development of an enterprise-grade job application automation platform.",
+      industry: "AI Systems Governance",
+      projectType: "Python CLI | Open Source",
+      summary: "An MIT-licensed Python tool for governing AI-agent skills.",
       achievements: [
-        "Architected multi-source Playwright scraping orchestrator with semantic scoring",
-        "Built React 19 / Tailwind v4 frontend with real-time SSE streaming status updates",
-        "Engineered failure-tolerant document rendering pipeline for PDF/LaTeX generation"
+        "Benchmarked across a 211-skill corpus",
+        "All 36 benchmark cells passed"
       ]
     },
     {
-      id: "resumecreator-exp",
-      title: "ResumeCreatorApp",
-      role: "Mobile App Developer",
+      id: "careerai-submitpro",
+      title: "careerai-submitpro",
+      role: "Personal project",
       duration: "Jan 2026 - Present",
-      industry: "Mobile / Productivity",
-      projectType: "Cross-Platform Mobile App",
-      summary: "Developing a robust offline-first resume builder using Flutter and SQLite.",
+      industry: "Career Automation",
+      projectType: "Job-Search Application",
+      summary: "A job-search application with multi-source role aggregation and a manual confirmation step before submission.",
       achievements: [
-        "Implemented modular template engine supporting 10+ professional designs",
-        "Engineered SQLite persistence layer for complex local state management",
-        "Designed and validated app store delivery pipelines and CI/CD workflows"
+        "Aggregates roles from several sources",
+        "Waits for manual confirmation before submitting"
+      ]
+    },
+    {
+      id: "voice-research-agents",
+      title: "voice_research_agents",
+      role: "Personal project",
+      duration: "Jan 2026 - Present",
+      industry: "Real-Time Voice Systems",
+      projectType: "Voice Research Assistant",
+      summary: "A real-time voice research assistant with background web-research delegation.",
+      achievements: [
+        "Delegates web research to run in the background"
       ]
     }
   ],
@@ -63,13 +73,13 @@ const companyProjects: Record<string, ProjectData[]> = {
     {
       id: "banksia",
       title: "Project Banksia",
-      role: "Process Engineer – Technology Transfer",
+      role: "Process Engineer, Technology Transfer",
       duration: "4 years",
       industry: "Biopharmaceutical Manufacturing",
       projectType: "Greenfield GMP Facility | Vaccine Manufacturing",
       summary: "Large-scale capital program to establish GMP-compliant vaccine manufacturing capability supporting seasonal and pandemic supply.",
       achievements: [
-        "Successfully transferred flu cell culture and PNS product portfolio",
+        "Transferred flu cell culture and antivenom product processes",
         "Enabled first-time GMP manufacturing at receiving site",
         "Reduced operational and regulatory risk during initial commercial campaigns"
       ]
@@ -78,16 +88,15 @@ const companyProjects: Record<string, ProjectData[]> = {
   "Life-Space Group": [
     {
       id: "tga-lines",
-      title: "TGA Manufacturing Lines Establishment",
-      role: "Project Engineer – Line Establishment Lead",
+      title: "Tablet and Sachet Production Lines",
+      role: "Project Engineer, Commissioning and Qualification",
       duration: "1 year",
       industry: "Pharmaceutical Manufacturing",
       projectType: "Tablet Manufacturing & Sachet Packing Lines",
-      summary: "Establishment of two major GMP manufacturing lines under aggressive timelines to achieve regulatory approval.",
+      summary: "Commissioning and qualification for two tablet and sachet production lines as part of an approximately AUD 20M capital project.",
       achievements: [
-        "Achieved TGA license approval on first audit with zero major findings",
-        "Delivered two GMP-compliant production lines on schedule",
-        "Established TGA audit-ready tablet line and sachet line"
+        "Commissioned and qualified two production lines",
+        "The site received TGA approval at its first audit with zero major findings"
       ]
     }
   ],
@@ -107,7 +116,7 @@ const companyProjects: Record<string, ProjectData[]> = {
       ]
     }
   ],
-  "Glass Expansions": [
+  "Glass Expansion": [
     {
       id: "laser-manufacturing",
       title: "Advanced Laser Manufacturing Optimization",
@@ -145,7 +154,7 @@ const companyProjects: Record<string, ProjectData[]> = {
       duration: "Feb 2016 - Aug 2016",
       industry: "Precision Manufacturing",
       projectType: "Mechanical Design | Advanced Engineering",
-      summary: "Designing state-of-the-art magnetic bearing spindle for CNC machines.",
+      summary: "Designing a magnetic bearing spindle for CNC machines.",
       achievements: [
         "CNC spindle redesign for magnetic-bearing compatibility",
         "Electromagnetic analysis + structural/thermal FEA",
@@ -157,21 +166,37 @@ const companyProjects: Record<string, ProjectData[]> = {
   ]
 };
 
-const experiences = [
+interface ExperienceEntry {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  description: string | string[];
+  isCurrent: boolean;
+}
+
+const experiences: ExperienceEntry[] = [
   {
-    id: "independent-builder",
-    company: "Independent Product Building",
-    role: "Independent Software Engineer & AI Product Developer",
+    id: "career-break",
+    company: "Professional development",
+    role: "Career break",
     period: "Jan 2026 - Present",
-    description: "Developing a suite of high-performance AI career-automation tools and mobile platforms during a planned technical upskilling sabbatical.",
+    description: [
+      "Planned career break focused on structured upskilling and independent software development. I completed CS50's Introduction to Programming with Python (CS50P) during this period.",
+      "I created skills-catalog-governance, an MIT-licensed Python tool for governing AI-agent skills. It was tested across a 211-skill corpus, with all 36 benchmark cells passing. I also built careerai-submitpro, a job-search application with multi-source role aggregation and a manual confirmation step before submission, and voice_research_agents, a real-time voice research assistant with background web-research delegation.",
+    ],
     isCurrent: true,
   },
   {
     id: "csl-seqirus",
     company: "CSL Seqirus",
-    role: "MS&T Process Engineer / Technology Transfer Lead",
+    role: "MS&T Process Engineer (Technology Transfer Lead)",
     period: "Jul 2022 - Dec 2025",
-    description: "Led 10+ cross-functional teams on $800M Project Banksia. Global technology transfer for cell-culture vaccines and antivenom products.",
+    description: [
+      "I owned MS&T technology-transfer deliverables for cell-culture influenza vaccine and antivenom processes on Project Banksia, an AUD 800M capital program. I prepared technology-transfer packages and facility-fit assessments, delivered process characterisation studies and MS&T engineering batches, and coordinated work across Operations, Quality, Validation, Engineering, Automation and Supply Chain.",
+      "I led HAZOP studies and managed process and facility change control. Technology-transfer packages included FMEA, QRA and Process Risk and Gap Analysis (PRAGA). I reviewed and approved dozens of IQ/OQ/PQ protocols and carried out qualification and commissioning activities. At peak, I coordinated 10 to 30 specialist maintenance contractors.",
+      "I authored and reviewed process flow diagrams, P&IDs, user requirement specifications and functional design specifications, and completed process calculations, equipment sizing and specifications. I also provided MS&T support during Validation-led PPQ batches.",
+    ],
     isCurrent: false,
   },
   {
@@ -179,7 +204,10 @@ const experiences = [
     company: "Life-Space Group",
     role: "Project Engineer",
     period: "Nov 2021 - Jul 2022",
-    description: "Delivered engineering solutions in nutraceutical manufacturing. Led tablet manufacturing and sachet packaging production lines.",
+    description: [
+      "I delivered commissioning and qualification for two tablet and sachet production lines as part of an approximately AUD 20M capital project. I owned a defined AUD 100K to AUD 1M budget for the commissioning and qualification scope, and led equipment commissioning, reliability verification and handover.",
+      "I developed documentation and preventive maintenance protocols to support site readiness. The site received TGA approval at its first audit with zero major findings, and the project recorded zero safety incidents. I also gained hands-on experience in granulation and tablet coating.",
+    ],
     isCurrent: false,
   },
   {
@@ -200,7 +228,7 @@ const experiences = [
   },
   {
     id: "glass-expansions",
-    company: "Glass Expansions",
+    company: "Glass Expansion",
     role: "Laser Technician",
     period: "Jun 2017 - Aug 2018",
     description: "Laser programming and execution for precision engraving and cutting. Implemented 5S and continuous improvement initiatives.",
@@ -225,7 +253,7 @@ const experiences = [
 ];
 
 // Timeline Node Component
-function TimelineNode({ index, isCurrent }: { index: number; isCurrent: boolean }) {
+function TimelineNode() {
   return (
     <motion.div
       className="absolute left-1/2 -translate-x-1/2 z-20"
@@ -389,7 +417,7 @@ function ProjectCard({ project, index, isLeft = false }: ProjectCardProps) {
 
 // Company Card Component
 interface CompanyCardProps {
-  exp: typeof experiences[0];
+  exp: ExperienceEntry;
   index: number;
 }
 
@@ -455,9 +483,11 @@ function CompanyCard({ exp, index }: CompanyCardProps) {
       </div>
 
       {/* Company Description */}
-      <p className="text-sm text-white/50 leading-relaxed">
-        {exp.description}
-      </p>
+      <div className="text-sm text-white/50 leading-relaxed space-y-3">
+        {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
     </motion.div>
   );
 }
@@ -518,10 +548,7 @@ export function Experience() {
                   viewport={{ once: true, margin: "-50px" }}
                 >
                   {/* Timeline Node */}
-                  <TimelineNode 
-                    index={index} 
-                    isCurrent={exp.isCurrent || false} 
-                  />
+                  <TimelineNode />
 
                   {/* Connection Line */}
                   <ConnectionLine index={index} isLeft={isLeft} />
