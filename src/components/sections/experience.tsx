@@ -95,7 +95,8 @@ const companyProjects: Record<string, ProjectData[]> = {
       projectType: "Tablet Manufacturing & Sachet Packing Lines",
       summary: "Commissioning and qualification for two tablet and sachet production lines as part of an approximately AUD 20M capital project.",
       achievements: [
-        "Commissioned and qualified two production lines",
+        "Led equipment commissioning, reliability verification and handover",
+        "Owned a defined AUD 100K to AUD 1M budget for the commissioning and qualification scope",
         "The site received TGA approval at its first audit with zero major findings"
       ]
     }
@@ -124,10 +125,9 @@ const companyProjects: Record<string, ProjectData[]> = {
       duration: "1+ year",
       industry: "Precision Manufacturing",
       projectType: "Laser Processing | Continuous Improvement",
-      summary: "Laser processing of carbon materials previously considered unfeasible.",
+      summary: "Enabled laser processing of carbon materials previously considered unfeasible.",
       achievements: [
-        "Enabled laser processing of carbon materials previously considered unfeasible",
-        "Significantly reduced scrap and rejection rates"
+        "Applied 5S and continuous improvement practices to reduce scrap and product rejection rates"
       ]
     }
   ],
@@ -139,7 +139,7 @@ const companyProjects: Record<string, ProjectData[]> = {
       duration: "~1 year",
       industry: "Heavy Industry | Mining | Oil & Gas",
       projectType: "Mechanical Design | Reliability Engineering",
-      summary: "Design of large-scale bearing systems for global industrial clients.",
+      summary: "Designed and drafted large bearing systems for food, oil and mining applications using AutoCAD and Autodesk Inventor.",
       achievements: [
         "Supported high-reliability applications in critical industrial environments",
         "Improved maintainability and lifecycle performance of bearing systems"

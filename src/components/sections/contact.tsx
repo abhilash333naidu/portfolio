@@ -83,9 +83,9 @@ export function Contact() {
                   required
                 >
                   <option value="General Inquiry">General Inquiry</option>
-                  <option value="Project Collaboration">Project Collaboration</option>
+                  <option value="Networking">Networking</option>
                   <option value="Job Opportunity">Job Opportunity</option>
-                  <option value="Consulting">Consulting</option>
+                  <option value="Role opportunity">Role opportunity</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
@@ -100,7 +100,7 @@ export function Contact() {
                   name="message"
                   rows={5}
                   className="w-full px-4 py-3 sm:px-5 sm:py-4 rounded-xl border border-[#2a2a2a] bg-[#141414] text-[#ffffff] placeholder-[#666666] focus:border-[#3a3a3a] focus:outline-none transition-all duration-300 resize-none"
-                  placeholder="Tell me about your project or opportunity..."
+                  placeholder="Tell me about the role or opportunity..."
                   required
                 />
               </div>
